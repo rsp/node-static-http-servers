@@ -1,0 +1,22 @@
+{
+  "name": "node-static-http-servers",
+  "version": "0.0.0",
+  "description": "Examples of serving static files with HTTP using Node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsp/node-static-http-servers.git"
+  },
+  "author": "Rafał Pocztarski <r.pocztarski@gmail.com> (https://pocztarski.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rsp/node-static-http-servers/issues"
+  },
+  "homepage": "https://github.com/rsp/node-static-http-servers#readme",
+  "dependencies": {
+    "connect": "^3.5.0",
+    "express": "^4.14.0"
+  }
+}
