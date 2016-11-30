@@ -9,44 +9,6 @@ Node Static HTTP Servers
 Examples of serving static files with HTTP using Node.js
 on few levels of abstraction, from `express.static` to directly using the `net` module with raw TCP sockets.
 
-Installation
-------------
-Download the files using git:
-
-```sh
-git clone git@github.com:rsp/node-static-http-servers.git
-# or:
-git clone https://github.com/rsp/node-static-http-servers.git
-```
-Or download a ZIP file:
-
-```sh
-wget https://github.com/rsp/node-static-http-servers/archive/master.zip
-tar xzvf master.zip
-```
-
-Install dependencies:
-
-```sh
-npm install
-```
-
-Running tests:
-
-```sh
-npm test
-```
-
-Running individual servers:
-
-```sh
-node net.js
-node http.js
-node connect.js
-node express.js
-node estatic.js
-```
-
 Examples
 --------
 Every example serves the same files from the [`public`](public) directory and supports the minumum functionality of:
@@ -56,6 +18,14 @@ Every example serves the same files from the [`public`](public) directory and su
 * responds with error codes for missing files
 * no path traversal vulnerabilities
 * no race conditions while reading files
+
+All examples:
+
+1. [`express.static`](#expressstatic)
+2. [`express`](#expresss)
+3. [`connect`](#connect)
+4. [`http`](#http)
+5. [`net`](#net)
 
 ### `express.static`
 
@@ -96,6 +66,45 @@ It has similar functionality to [the `connect` version](#connect) but using even
 This version uses the [`net`](https://nodejs.org/api/net.html#net_net) module which is the lowest-level API for TCP sockets in Node.
 
 It has some of the functionality of [the `http` version](#http) but the minimal and incomplete HTTP protocol has been implemented from scratch. Since it doesn't support chunked encoding it loads the files into memory before serving them to know the size before sending a response because statting the files and then loading would introduce a race condition.
+
+Installation
+------------
+Download the files using git:
+
+```sh
+git clone git@github.com:rsp/node-static-http-servers.git
+# or:
+git clone https://github.com/rsp/node-static-http-servers.git
+```
+
+Or download a ZIP file:
+
+```sh
+wget https://github.com/rsp/node-static-http-servers/archive/master.zip
+tar xzvf master.zip
+```
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Running tests:
+
+```sh
+npm test
+```
+
+Running individual servers:
+
+```sh
+node net.js
+node http.js
+node connect.js
+node express.js
+node estatic.js
+```
 
 Issues
 ------
