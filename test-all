@@ -9,7 +9,7 @@ fail () {
   exit 1
 }
 
-for i in connect.js express.js static.js; do
+for i in connect.js express.js estatic.js; do
     ./test-server $i || fail
 done
 echo TESTS PASSED
