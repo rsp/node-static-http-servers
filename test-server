@@ -34,6 +34,9 @@ curl -s -D - -o /dev/null $b/ | head -1 | grep -q 200 || fail
 echo "Testing status of non-existent $b/x"
 curl -s -D - -o /dev/null $b/x | head -1 | grep -q 404 || fail
 
+echo "Testing status of bad method $b/"
+curl -X POST -s -D - -o /dev/null $b/ | head -1 | grep -q 200 && fail
+
 echo "Testing content type of $b/"
 curl -s -D - -o /dev/null $b/ | grep -i 'content-type' | grep -q 'text/html' || fail
 
