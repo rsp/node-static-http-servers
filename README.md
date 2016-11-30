@@ -22,7 +22,7 @@ Every example serves the same files from the [`public`](public) directory and su
 All examples:
 
 1. [`express.static`](#expressstatic)
-2. [`express`](#expresss)
+2. [`express`](#express)
 3. [`connect`](#connect)
 4. [`http`](#http)
 5. [`net`](#net)
