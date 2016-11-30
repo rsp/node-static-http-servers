@@ -9,6 +9,10 @@ Node Static HTTP Servers
 Examples of serving static files with HTTP using Node.js
 on five levels of abstraction - from `express.static` to directly using the `net` module with raw TCP sockets.
 
+It was written for the answer on Stack Overflow:
+
+* [How to serve an image using Node.js](https://stackoverflow.com/questions/5823722/how-to-serve-an-image-using-nodejs/40899767#40899767)
+
 Examples
 --------
 Every example serves the same files from the [`public`](public) directory and supports the minumum functionality of:
