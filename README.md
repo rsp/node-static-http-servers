@@ -14,6 +14,7 @@ Using: Connect.js and Express.js (with and without express.static)
 [readme-url]: https://github.com/rsp/node-static-http-servers#readme
 [issues-url]: https://github.com/rsp/node-static-http-servers/issues
 [license-url]: https://github.com/rsp/node-static-http-servers/blob/master/LICENSE.md
+[license-img]: https://img.shields.io/github/license/rsp/node-static-http-servers.svg
 [travis-url]: https://travis-ci.org/rsp/node-static-http-servers
 [travis-img]: https://travis-ci.org/rsp/node-static-http-servers.svg?branch=master
 [snyk-url]: https://snyk.io/test/github/rsp/node-static-http-servers
