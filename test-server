@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Copyright (c) 2016 Rafał Pocztarski
+# Released under MIT License (Expat) - see:
+# https://github.com/rsp/node-static-http-servers/blob/master/LICENSE.md
+
+fail () {
+  echo TESTING $server FAILED
+  kill $pid
+  exit 1
+}
+
+[ -z "$1" ] && echo "Usage: $0 filename.js" && exit 1
+server=$1
+
+echo TESTING $server
+
+node $server &
+pid=$!
+
+sleep 1
+b=http://localhost:3000
+
+echo "Testing contents of $b/"
+cmp public/index.html <(curl -s $b/) || fail
+for f in index.html avatar.gif photo.jpg script.js style.css text.txt; do
+  echo "Testing contents of $b/$f"
+  cmp public/$f <(curl -s $b/$f) || fail
+done
+
+echo "Testing status of $b/"
+curl -s -D - -o /dev/null $b/ | head -1 | grep -q 200 || fail
+
+echo "Testing status of non-existent $b/x"
+curl -s -D - -o /dev/null $b/x | head -1 | grep -q 404 || fail
+
+echo "Testing content type of $b/"
+curl -s -D - -o /dev/null $b/ | grep -i 'content-type' | grep -q 'text/html' || fail
+
+echo "Testing content type of $b/index.html"
+curl -s -D - -o /dev/null $b/index.html | grep -i 'content-type' | grep -q 'text/html' || fail
+
+echo "Testing content type of $b/avatar.gif"
+curl -s -D - -o /dev/null $b/avatar.gif | grep -i 'content-type' | grep -q 'image/gif' || fail
+
+echo "Testing content type of $b/phono.jpg"
+curl -s -D - -o /dev/null $b/photo.jpg | grep -i 'content-type' | grep -q 'image/jpeg' || fail
+
+echo "Testing content type of $b/script.js"
+curl -s -D - -o /dev/null $b/script.js | grep -i 'content-type' | grep -q 'application/javascript' || fail
+
+echo "Testing content type of $b/style.css"
+curl -s -D - -o /dev/null $b/style.css | grep -i 'content-type' | grep -q 'text/css' || fail
+
+echo "Testing content type of $b/text.txt"
+curl -s -D - -o /dev/null $b/text.txt | grep -i 'content-type' | grep -q 'text/plain' || fail
+
+kill $pid
+
+echo TESTING $server OK
