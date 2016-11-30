@@ -6,10 +6,6 @@ Node Static HTTP Servers
 [![Known Vulnerabilities][snyk-img]][snyk-url]
 [![License][license-img]][license-url]
 
-Examples of serving static files with HTTP using Node.js
-
-Using: Connect.js and Express.js (with and without express.static)
-
 [github-url]: https://github.com/rsp/node-static-http-servers
 [readme-url]: https://github.com/rsp/node-static-http-servers#readme
 [issues-url]: https://github.com/rsp/node-static-http-servers/issues
@@ -28,6 +24,97 @@ Using: Connect.js and Express.js (with and without express.static)
 [stackoverflow-url]: https://stackoverflow.com/users/613198/rsp
 [stackexchange-url]: https://stackexchange.com/users/303952/rsp
 [stackexchange-img]: https://stackexchange.com/users/flair/303952.png
+
+Examples of serving static files with HTTP using Node.js
+on few levels of abstraction, from `express.static` to directly using the `net` module with raw TCP sockets.
+
+Installation
+------------
+Download the files using git:
+
+```sh
+git clone git@github.com:rsp/node-static-http-servers.git
+# or:
+git clone https://github.com/rsp/node-static-http-servers.git
+```
+Or download a ZIP file:
+
+```sh
+wget https://github.com/rsp/node-static-http-servers/archive/master.zip
+tar xzvf master.zip
+```
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Running tests:
+
+```sh
+npm test
+```
+
+Running individual servers:
+
+```sh
+node net.js
+node http.js
+node connect.js
+node express.js
+node estatic.js
+```
+
+Examples
+--------
+Every example serves the same files from the [`public`](public) directory and supports the minumum functionality of:
+
+* MIME types for most common files
+* serves `index.html` as a default directory index
+* responds with error codes for missing files
+* no path traversal vulnerabilities
+* no race conditions while reading files
+
+### `express.static`
+
+[estatic.js](estatic.js) ([raw](https://raw.githubusercontent.com/rsp/node-static-http-servers/master/estatic.js))
+
+This version uses the [`express.static`](https://expressjs.com/en/starter/static-files.html) built-in middleware of the [`express`](https://expressjs.com/) module.
+
+It has the most functionality and the least ammount of code.
+
+### `express`
+
+[express.js](express.js) ([raw](https://raw.githubusercontent.com/rsp/node-static-http-servers/master/express.js))
+
+This version uses the [`express`](https://expressjs.com/) module but without the `express.static` middleware. Serving static files is implemented as a single route handler using streams.
+
+It has simple path traversal countermeasures and supports a limited set of most common MIME types.
+
+### `connect`
+
+[connect.js](connect.js) ([raw](https://raw.githubusercontent.com/rsp/node-static-http-servers/master/connect.js))
+
+This version uses the [`connect`](http://senchalabs.github.com/connect) module which is a one level of abstraction lower than `express`.
+
+It has similar functionality to [the `express` version](#express) but using slightly lower-lever APIs.
+
+### `http`
+
+[http.js](http.js) ([raw](https://raw.githubusercontent.com/rsp/node-static-http-servers/master/http.js))
+
+This version uses the [`http`](https://nodejs.org/api/http.html#http_http) module which is the lowest-level API for HTTP in Node.
+
+It has similar functionality to [the `connect` version](#connect) but using even more lower-level APIs.
+
+### `net`
+
+[net.js](net.js) ([raw](https://raw.githubusercontent.com/rsp/node-static-http-servers/master/net.js))
+
+This version uses the [`net`](https://nodejs.org/api/net.html#net_net) module which is the lowest-level API for TCP sockets in Node.
+
+It has some of the functionality of [the `http` version](#http) but the minimal and incomplete HTTP protocol has been implemented from scratch. Since it doesn't support chunked encoding it loads the files into memory before serving them to know the size before sending a response because statting the files and then loading would introduce a race condition.
 
 Issues
 ------
