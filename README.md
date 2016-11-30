@@ -7,7 +7,7 @@ Node Static HTTP Servers
 [![License][license-img]][license-url]
 
 Examples of serving static files with HTTP using Node.js
-on few levels of abstraction, from `express.static` to directly using the `net` module with raw TCP sockets.
+on five levels of abstraction - from `express.static` to directly using the `net` module with raw TCP sockets.
 
 Examples
 --------
