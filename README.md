@@ -13,6 +13,8 @@ It was written for the answer on Stack Overflow:
 
 * [How to serve an image using Node.js](https://stackoverflow.com/questions/5823722/how-to-serve-an-image-using-nodejs/40899767#40899767)
 
+Read this answer for some background and better explanation.
+
 Examples
 --------
 Every example serves the same files from the [`public`](public) directory and supports the minumum functionality of:
@@ -40,7 +42,7 @@ All examples:
 
 This version uses the [`express.static`](https://expressjs.com/en/starter/static-files.html) built-in middleware of the [`express`](https://expressjs.com/) module.
 
-It has the most functionality and the least ammount of code.
+This example has the most functionality and the least amount of code.
 
 ### `express`
 
@@ -48,7 +50,7 @@ It has the most functionality and the least ammount of code.
 
 This version uses the [`express`](https://expressjs.com/) module but without the `express.static` middleware. Serving static files is implemented as a single route handler using streams.
 
-It has simple path traversal countermeasures and supports a limited set of most common MIME types.
+This example has simple path traversal countermeasures and supports a limited set of most common MIME types.
 
 ### `connect`
 
@@ -56,7 +58,7 @@ It has simple path traversal countermeasures and supports a limited set of most 
 
 This version uses the [`connect`](http://senchalabs.github.com/connect) module which is a one level of abstraction lower than `express`.
 
-It has similar functionality to [the `express` version](#express) but using slightly lower-lever APIs.
+This example has similar functionality to [the `express` version](#express) but using slightly lower-lever APIs.
 
 ### `http`
 
@@ -64,7 +66,7 @@ It has similar functionality to [the `express` version](#express) but using slig
 
 This version uses the [`http`](https://nodejs.org/api/http.html#http_http) module which is the lowest-level API for HTTP in Node.
 
-It has similar functionality to [the `connect` version](#connect) but using even more lower-level APIs.
+This example has similar functionality to [the `connect` version](#connect) but using even more lower-level APIs.
 
 ### `net`
 
@@ -72,7 +74,7 @@ It has similar functionality to [the `connect` version](#connect) but using even
 
 This version uses the [`net`](https://nodejs.org/api/net.html#net_net) module which is the lowest-level API for TCP sockets in Node.
 
-It has some of the functionality of [the `http` version](#http) but the minimal and incomplete HTTP protocol has been implemented from scratch. Since it doesn't support chunked encoding it loads the files into memory before serving them to know the size before sending a response because statting the files and then loading would introduce a race condition.
+This example has some of the functionality of [the `http` version](#http) but the minimal and incomplete HTTP protocol has been implemented from scratch. Since it doesn't support chunked encoding it loads the files into memory before serving them to know the size before sending a response because statting the files and then loading would introduce a race condition.
 
 Installation
 ------------
