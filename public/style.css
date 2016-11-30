@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+img.avatar {
+    border-radius: 50%;
+}
+p.style {
+    opacity: 1 !important;
+}
