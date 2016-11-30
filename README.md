@@ -14,6 +14,7 @@ Examples
 Every example serves the same files from the [`public`](public) directory and supports the minumum functionality of:
 
 * MIME types for most common files
+* must serve HTML, JS, CSS, plain text and images
 * serves `index.html` as a default directory index
 * responds with error codes for missing files
 * no path traversal vulnerabilities
