@@ -19,6 +19,8 @@ Every example serves the same files from the [`public`](public) directory and su
 * no path traversal vulnerabilities
 * no race conditions while reading files
 
+Every version is tested with Travis on Node versions 4, 5, 6 and 7. See [test results][travis-url].
+
 All examples:
 
 1. [`express.static`](#expressstatic)
