@@ -4,7 +4,12 @@
 # Released under MIT License (Expat) - see:
 # https://github.com/rsp/node-static-http-servers/blob/master/LICENSE.md
 
+fail () {
+  echo TESTING FAILED
+  exit 1
+}
+
 for i in connect.js express.js static.js; do
-    ./test-server $i || (echo TESTS FAILED; exit 1)
+    ./test-server $i || fail
 done
 echo TESTS PASSED
