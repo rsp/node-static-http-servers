@@ -11,9 +11,17 @@ on five levels of abstraction - from `express.static` to directly using the `net
 
 It was written for the answer on Stack Overflow:
 
-* [How to serve an image using Node.js](https://stackoverflow.com/questions/5823722/how-to-serve-an-image-using-nodejs/40899767#40899767)
+* [**How to serve an image using Node.js**](https://stackoverflow.com/questions/5823722/how-to-serve-an-image-using-nodejs/40899767#40899767)
 
 Read this answer for some background and better explanation.
+
+Other related answers on Stack Overflow:
+
+* [Failed to load resource from same directory when redirecting Javascript](https://stackoverflow.com/questions/38441863/failed-to-load-resource-from-same-directory-when-redirecting-javascript/38442747#38442747)
+* [onload js call not working with node](https://stackoverflow.com/questions/38587286/onload-js-call-not-working-with-node/38587729#38587729)
+* [Sending whole folder content to client with express](https://stackoverflow.com/questions/40509666/sending-whole-folder-content-to-client-with-express/40510339#40510339)
+* [Loading partials fails on the server JS](https://stackoverflow.com/questions/40722476/loading-partials-fails-on-the-server-js/40722594#40722594)
+* [Node JS not serving the static image](https://stackoverflow.com/questions/40837359/node-js-not-serving-the-static-image/40839534#40839534)
 
 Examples
 --------
@@ -118,7 +126,7 @@ node estatic.js
 Issues
 ------
 For any bug reports or feature requests please
-[post an issue on GitHub](https://github.com/rsp/node-static-http-servers/issues).
+[post an issue on GitHub][issues-url].
 
 Author
 ------
