@@ -27,7 +27,7 @@ var mime = {
 
 app.get('*', function (req, res) {
     var file = path.join(dir, req.path.replace(/\/$/, '/index.html'));
-    if (file.indexOf(dir+'/') !== 0) {
+    if (file.indexOf(dir + path.sep) !== 0) {
         return res.status(403).end('Forbidden');
     }
     var type = mime[path.extname(file).slice(1)] || 'text/plain';

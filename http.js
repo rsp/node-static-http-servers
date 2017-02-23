@@ -32,7 +32,7 @@ var server = http.createServer(function (req, res) {
         return res.end('Method not implemented');
     }
     var file = path.join(dir, reqpath.replace(/\/$/, '/index.html'));
-    if (file.indexOf(dir+'/') !== 0) {
+    if (file.indexOf(dir + path.sep) !== 0) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/plain');
         return res.end('Forbidden');
