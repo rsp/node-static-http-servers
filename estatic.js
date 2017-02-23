@@ -5,7 +5,7 @@
 var info = 'node-static-http-servers by Rafał Pocztarski\n'
          + 'Examples of HTTP static file serving in Node.js\n'
          + 'See: https://github.com/rsp/node-static-http-servers\n'
-         + 'Example using: express';
+         + 'Example using: express.static';
 
 var path = require('path');
 var express = require('express');
